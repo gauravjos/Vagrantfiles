@@ -1,0 +1,102 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# All Vagrant configuration is done below. The "2" in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don't change it unless you know what
+# you're doing.
+Vagrant.configure(2) do |config|
+  config.vm.define "nagiosServer" do |nagiosServer| 
+  	nagiosServer.vm.box = "ubuntu/trusty64"
+  	nagiosServer.vm.network "public_network" , :adapter=>2 , type: "dhcp", :bridge => "eth0"
+  	nagiosServer.vm.hostname ="nagiosServer"
+  	nagiosServer.vm.provider "virtualbox" do |vb|
+  #   # Display the VirtualBox GUI when booting the machine
+    vb.gui = true
+    vb.name = "nagiosServer"
+     # Customize the amount of memory on the VM:
+    vb.memory = "1024"
+    end  
+#    	nagiosServer.vm.provision "chef_client" do |chef|
+#     chef.chef_server_url = "https://api.chef.io/organizations/devops_testorg"
+#     chef.validation_key_path = "devops_testorg-validator.pem"
+#     chef.client_key_path  = "gauravjos.pem"
+#     chef.validation_client_name = "devops_testorg-validator"
+#     chef.nagioshost_name = "nagiosServer-lb"
+#     # chef.add_nagioshost = true
+#  #   chef.cookbooks_path = "cookbooks"
+# 	#chef.add_recipe  "apache2::default" 
+# #	end
+#   	end
+
+ end
+                                                                                                                                                                                                                                                                           
+   config.vm.define "nagioshost1" do |nagioshost1| 
+  	nagioshost1.vm.box = "ubuntu/trusty64"
+  	nagioshost1.vm.network "public_network" , :adapter=>2 , type: "dhcp", :bridge => "eth0"
+  	nagioshost1.vm.hostname ="nagioshost1"
+  	nagioshost1.vm.provider "virtualbox" do |vb|
+    # Display the VirtualBox GUI when booting the machine
+    vb.gui = true
+    vb.name = "nagioshost1"
+     # Customize the amount of memory on the VM:
+     vb.memory = "1024"
+   	end            
+ #  	 nagioshost1.vm.provision "chef_client" do |chef|
+ #    	chef.chef_server_url = "https://api.chef.io/organizations/devops_testorg"
+	#     chef.validation_key_path = "devops_testorg-validator.pem"
+	#     chef.client_key_path  = "gauravjos.pem"
+	#     chef.validation_client_name = "devops_testorg-validator"
+	#     chef.nagioshost_name = "nagioshost1"
+	#     # chef.add_nagioshost = true
+	#  #   chef.cookbooks_path = "cookbooks"
+	# 	#chef.add_recipe  "apache2::default" 
+	# #	end
+ #  	end
+  end
+  
+   config.vm.define "nagioshost2" do |nagioshost2| 
+  	nagioshost2.vm.box = "ubuntu/trusty64"
+  	nagioshost2.vm.network "public_network" , :adapter=>2 , type: "dhcp", :bridge => "eth0"
+  	nagioshost2.vm.hostname ="nagioshost2"
+  	nagioshost2.vm.provider "virtualbox" do |vb|
+  #   # Display the VirtualBox GUI when booting the machine
+    vb.gui = true
+    vb.name = "nagioshost2"
+     # Customize the amount of memory on the VM:
+     vb.memory = "1024"
+   end            
+#    nagioshost2.vm.provision "chef_client" do |chef|
+#     chef.chef_server_url = "https://api.chef.io/organizations/devops_testorg"
+#     chef.validation_key_path = "devops_testorg-validator.pem"
+#     chef.client_key_path  = "gauravjos.pem"
+#     chef.validation_client_name = "devops_testorg-validator"
+#     chef.nagioshost_name = "nagioshost2"
+#     # chef.add_nagioshost = true
+#  #   chef.cookbooks_path = "cookbooks"
+# 	#chef.add_recipe  "apache2::default" 
+# #	end
+#   	end
+  end
+
+
+   #config.vm.define "mydb" do |mydb| 
+  #	mydb.vm.box = "ubuntu/trusty64"
+  #	mydb.vm.network "public_network"
+  #	mydb.vm.provider "virtualbox" do |vb|
+    # Display the VirtualBox GUI when booting the machine
+  #  vb.gui = true
+  #  vb.name = "mydb"
+  #   # Customize the amount of memory on the VM:
+  #   vb.memory = "1024"
+  # end            
+   # mydb.vm.provision "chef_client" do |chef|
+   #  chef.chef_server_url = "https://api.chef.io/organizations/devops_testorg"
+   #  chef.validation_key_path = "devops_testorg-validator.pem"
+   #  chef.client_key_path  = "gauravjos.pem"
+   #  chef.validation_client_name = "devops_testorg-validator"
+   #  chef.nagioshost_name = "mydb"
+   #  # chef.add_nagioshost = true
+  	# end
+  #end
+end

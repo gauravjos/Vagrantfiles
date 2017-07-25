@@ -1,0 +1,102 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# All Vagrant configuration is done below. The "2" in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don't change it unless you know what
+# you're doing.
+Vagrant.configure(2) do |config|
+  config.vm.define "node1" do |node1| 
+  	node1.vm.box = "ubuntu/trusty64"
+  	node1.vm.network "public_network" , :adapter=>2 , type: "dhcp", :bridge => "eth0"
+  	node1.vm.hostname ="node1"
+  	node1.vm.provider "virtualbox" do |vb|
+  #   # Display the VirtualBox GUI when booting the machine
+    vb.gui = true
+    vb.name = "node1"
+     # Customize the amount of memory on the VM:
+    vb.memory = "1024"
+    end  
+#    	node1.vm.provision "chef_client" do |chef|
+#     chef.chef_server_url = "https://api.chef.io/organizations/devops_testorg"
+#     chef.validation_key_path = "devops_testorg-validator.pem"
+#     chef.client_key_path  = "gauravjos.pem"
+#     chef.validation_client_name = "devops_testorg-validator"
+#     chef.node_name = "node1-lb"
+#     # chef.add_node = true
+#  #   chef.cookbooks_path = "cookbooks"
+# 	#chef.add_recipe  "apache2::default" 
+# #	end
+#   	end
+
+ end
+                                                                                                                                                                                                                                                                           
+   config.vm.define "node2" do |node2| 
+  	node2.vm.box = "ubuntu/trusty64"
+  	node2.vm.network "public_network" , :adapter=>2 , type: "dhcp", :bridge => "eth0"
+  	node2.vm.hostname ="node2"
+  	node2.vm.provider "virtualbox" do |vb|
+    # Display the VirtualBox GUI when booting the machine
+    vb.gui = true
+    vb.name = "node2"
+     # Customize the amount of memory on the VM:
+     vb.memory = "1024"
+   	end            
+ #  	 node2.vm.provision "chef_client" do |chef|
+ #    	chef.chef_server_url = "https://api.chef.io/organizations/devops_testorg"
+	#     chef.validation_key_path = "devops_testorg-validator.pem"
+	#     chef.client_key_path  = "gauravjos.pem"
+	#     chef.validation_client_name = "devops_testorg-validator"
+	#     chef.node_name = "node2"
+	#     # chef.add_node = true
+	#  #   chef.cookbooks_path = "cookbooks"
+	# 	#chef.add_recipe  "apache2::default" 
+	# #	end
+ #  	end
+  end
+  
+   config.vm.define "node3" do |node3| 
+  	node3.vm.box = "ubuntu/trusty64"
+  	node3.vm.network "public_network" , :adapter=>2 , type: "dhcp", :bridge => "eth0"
+  	node3.vm.hostname ="node3"
+  	node3.vm.provider "virtualbox" do |vb|
+  #   # Display the VirtualBox GUI when booting the machine
+    vb.gui = true
+    vb.name = "node3"
+     # Customize the amount of memory on the VM:
+     vb.memory = "1024"
+   end            
+#    node3.vm.provision "chef_client" do |chef|
+#     chef.chef_server_url = "https://api.chef.io/organizations/devops_testorg"
+#     chef.validation_key_path = "devops_testorg-validator.pem"
+#     chef.client_key_path  = "gauravjos.pem"
+#     chef.validation_client_name = "devops_testorg-validator"
+#     chef.node_name = "node3"
+#     # chef.add_node = true
+#  #   chef.cookbooks_path = "cookbooks"
+# 	#chef.add_recipe  "apache2::default" 
+# #	end
+#   	end
+  end
+
+
+   #config.vm.define "mydb" do |mydb| 
+  #	mydb.vm.box = "ubuntu/trusty64"
+  #	mydb.vm.network "public_network"
+  #	mydb.vm.provider "virtualbox" do |vb|
+    # Display the VirtualBox GUI when booting the machine
+  #  vb.gui = true
+  #  vb.name = "mydb"
+  #   # Customize the amount of memory on the VM:
+  #   vb.memory = "1024"
+  # end            
+   # mydb.vm.provision "chef_client" do |chef|
+   #  chef.chef_server_url = "https://api.chef.io/organizations/devops_testorg"
+   #  chef.validation_key_path = "devops_testorg-validator.pem"
+   #  chef.client_key_path  = "gauravjos.pem"
+   #  chef.validation_client_name = "devops_testorg-validator"
+   #  chef.node_name = "mydb"
+   #  # chef.add_node = true
+  	# end
+  #end
+end

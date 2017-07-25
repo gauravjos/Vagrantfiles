@@ -1,0 +1,100 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# All Vagrant configuration is done below. The "2" in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don't change it unless you know what
+# you're doing.
+Vagrant.configure(2) do |config|
+  config.vm.define "nginx" do |nginx| 
+  	nginx.vm.box = "ubuntu/trusty64"
+  	nginx.vm.network "public_network"
+  	nginx.vm.provider "virtualbox" do |vb|
+  #   # Display the VirtualBox GUI when booting the machine
+    vb.gui = true
+    vb.name = "nginx-lb"
+     # Customize the amount of memory on the VM:
+    vb.memory = "512"
+    end  
+#    	nginx.vm.provision "chef_client" do |chef|
+#     chef.chef_server_url = "https://api.chef.io/organizations/devops_testorg"
+#     chef.validation_key_path = "devops_testorg-validator.pem"
+#     chef.client_key_path  = "gauravjos.pem"
+#     chef.validation_client_name = "devops_testorg-validator"
+#     chef.node_name = "nginx-lb"
+#     # chef.add_node = true
+#  #   chef.cookbooks_path = "cookbooks"
+# 	#chef.add_recipe  "apache2::default" 
+# #	end
+#   	end
+
+ end
+                                                                                                                                                                                                                                                                           
+   config.vm.define "app1" do |app1| 
+  	app1.vm.box = "ubuntu/trusty64"
+  	app1.vm.network "public_network"
+  	
+  	app1.vm.provider "virtualbox" do |vb|
+    # Display the VirtualBox GUI when booting the machine
+    vb.gui = true
+    vb.name = "app1"
+     # Customize the amount of memory on the VM:
+     vb.memory = "512"
+   	end            
+ #  	 app1.vm.provision "chef_client" do |chef|
+ #    	chef.chef_server_url = "https://api.chef.io/organizations/devops_testorg"
+	#     chef.validation_key_path = "devops_testorg-validator.pem"
+	#     chef.client_key_path  = "gauravjos.pem"
+	#     chef.validation_client_name = "devops_testorg-validator"
+	#     chef.node_name = "app1"
+	#     # chef.add_node = true
+	#  #   chef.cookbooks_path = "cookbooks"
+	# 	#chef.add_recipe  "apache2::default" 
+	# #	end
+ #  	end
+  end
+  
+   config.vm.define "app2" do |app2| 
+  	app2.vm.box = "ubuntu/trusty64"
+  	app2.vm.network "public_network"
+  	app2.vm.provider "virtualbox" do |vb|
+  #   # Display the VirtualBox GUI when booting the machine
+    vb.gui = true
+    vb.name = "app2"
+     # Customize the amount of memory on the VM:
+     vb.memory = "512"
+   end            
+#    app2.vm.provision "chef_client" do |chef|
+#     chef.chef_server_url = "https://api.chef.io/organizations/devops_testorg"
+#     chef.validation_key_path = "devops_testorg-validator.pem"
+#     chef.client_key_path  = "gauravjos.pem"
+#     chef.validation_client_name = "devops_testorg-validator"
+#     chef.node_name = "app2"
+#     # chef.add_node = true
+#  #   chef.cookbooks_path = "cookbooks"
+# 	#chef.add_recipe  "apache2::default" 
+# #	end
+#   	end
+  end
+
+
+   config.vm.define "mydb" do |mydb| 
+  	mydb.vm.box = "ubuntu/trusty64"
+  	mydb.vm.network "public_network"
+  	mydb.vm.provider "virtualbox" do |vb|
+    # Display the VirtualBox GUI when booting the machine
+    vb.gui = true
+    vb.name = "mydb"
+     # Customize the amount of memory on the VM:
+     vb.memory = "512"
+   end            
+   # mydb.vm.provision "chef_client" do |chef|
+   #  chef.chef_server_url = "https://api.chef.io/organizations/devops_testorg"
+   #  chef.validation_key_path = "devops_testorg-validator.pem"
+   #  chef.client_key_path  = "gauravjos.pem"
+   #  chef.validation_client_name = "devops_testorg-validator"
+   #  chef.node_name = "mydb"
+   #  # chef.add_node = true
+  	# end
+  end
+end
